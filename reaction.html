@@ -5,20 +5,36 @@
     <title>Reaktionsspiel</title>
     <style media = "screen">
       .shape{
+        background-repeat: no-repeat;
+        background-position: center;
         position: absolute;
         left: 100px;
         top: 400px;
+      }
+
+      body{
+        font-family: sans-serif;
+        font-size: 2em;
+        background-image: url("bilder/background.jpg");
+
       }
       </style>
 
   </head>
   <body>
-    <p id="text">kafkjgdsfkj</p>
+
+
+    <p id="text">Es ist Cookie-Zeit! Schnapp sie dir so schnell wie möglich</p>
     <p>Deine Reaktionszeit: <span id="time"></span></p>
     <div id="shape" class ="shape"></div>
 
 
+
     <script type="text/javascript">
+
+      var images = ["bilder/cookie01.png", "bilder/cookie02.png", "bilder/cookie03.png", "bilder/cookie04.png"];
+
+
 
       var figur = document.getElementById("shape");
       var start = new Date().getTime();
@@ -35,12 +51,14 @@
         var y = getRandomInt(0, window.innerHeight-size);
         var r = getRandomInt (0,1)*50;
 
-        figur.style.background = '#'+Math.floor(Math.random()*15777215).toString(16);
+        // figur.style.background = '#'+Math.floor(Math.random()*15777215).toString(16);
         figur.style.width = size+"px";
         figur.style.height = size+"px";
         figur.style.left = x + "px";
         figur.style.top = y + "px";
-        figur.style.borderRadius = r + "%";
+        figur.style.backgroundImage = "url("+images[getRandomInt(0, images.length-1)]+")";
+        figur.style.backgroundSize = "contain";
+
         figur.style.display= "block";
         start = new Date().getTime();
       }
