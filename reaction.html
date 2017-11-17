@@ -41,33 +41,25 @@
         figur.style.left = x + "px";
         figur.style.top = y + "px";
         figur.style.borderRadius = r + "%";
+        figur.style.display= "block";
         start = new Date().getTime();
-
       }
+      // showFigure();
 
-      showFigure();
+      setTimeout(showFigure, Math.random() * 3000);
 
       figur.onclick = function(){
         end = new Date().getTime();
         document.getElementById("time").innerHTML = (end-start)/1000;
-        showFigure();
-        }
+        figur.style.display= "none";
+        setTimeout(showFigure, Math.random() * 3000);
+      }
+
+
+
 
 
       </script>
 
     </body>
   </html>
-
-
-
-<!-- // Größe als Zufallszahl produziert (wie getrandom Integer)
-Positioniert über Zufallszahlen
-Zufallszahl produziert, die Borderradius setzt,
-Zufällige Farbe gebaut mit Funktion (aus dem Internet)
-Funktion, die Figur zusammensetzt (wie groß,wo,border radius)
-Figur, die angezeigt wird (generate Figure)
-dann startet irgendeine zeit (startzeit beim klicken geht los)
-wegklicken der figur -> zeit gespeichert und angezeigt
-
-man kann delay einbauen indem man "set timeout" benutzt (siehe internet) -->
